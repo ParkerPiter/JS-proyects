@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/clipboard.css">
+    <title>Clipboard</title>
+</head>
+<body>
+    
+    <h1>Copy in clpboard with JS</h1>
+    <textarea  id="to-copy" spellcheck="false" placeholder="Escribe algo para copiar en tu clipboard cliqueado abajo."></textarea>
+    <button id="copy" type="button">Copiar en clipboard <span class="copiedtext" aria-hidden="true">Copiado</span></button>
+    
+    <textarea id="Limpiado" placeholder="Pegar el contenido que tienes copiado. De prueba" ></textarea>
+
+    <script>
+        var toCopy = document.getElementById( 'to-copy' ), 
+        btnCopy = document.getElementById( 'copy' ),
+        paste = document.getElementById( 'Limpiado' );
+        btnCopy.addEventListener( 'click', function(){
+            toCopy.select();
+            paste.value = '';
+            if (document.execCommand( 'copy' ) ){
+                btnCopy.classList.add( 'copied' );
+                paste.focus();
+                var temp = setInterval(function(){
+                    btnCopy.classList.remove( 'copied' );
+                    clearInterval(temp);
+                }, 600);
+            } else {
+                console.info( 'document.exeCommand went wrong...')
+            }
+            return false
+        });
+    </script>
+
+</body>
+</html>
