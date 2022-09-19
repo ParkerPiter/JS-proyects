@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop watch</title>
+</head>
+<body>
+    <div class="wrap">
+        <div id="timer" >
+            <svg width="260" height="260" >
+                <circle class="defaultCircle" cx="125" cy="125" r="120" stroke="#635bfc" stroke-width="10"
+                fill="none" stroke-linecap="round" />
+
+                <circle class="animateCircle" cx="125" cy="125" r="120" stroke="#635bfc" stroke-width="10"
+                fill="none" stroke-linecap="round" />
+            </svg>
+            <span  id="hours">00</span> :
+                <span  id="minutes">00</span> :
+                <span  id="seconds">00</span> :
+                <span  id="miliseconds">00</span> :
+        </div>
+        <p>Your time starts now</p>
+        <div class="option">
+            <a href="javascript:void(0)" onclick="playFunc();" id="play"><i class="fa fa-play"></i></a>
+        </div>
+    </div>
+</body>
+</html>
